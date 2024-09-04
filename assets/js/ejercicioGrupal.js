@@ -1,0 +1,3 @@
+// Ejercicio 1: Creación de una subclase simple
+// Consigna: Crea una clase Vehiculo con una propiedad marca y un método encender. Luego, crea una clase Auto que extienda de Vehiculo y añada una propiedad modelo. Sobrescribe el método encender para que muestre un mensaje que incluya la marca y el modelo.
+// crea una clase Moto que extienda de Vehiculo y ejecute el método encender para que muestre un mensaje que incluya la marca.
