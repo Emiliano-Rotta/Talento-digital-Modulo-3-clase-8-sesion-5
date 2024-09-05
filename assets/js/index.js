@@ -114,37 +114,37 @@
 
 
 // Ejercicio 5: Herencia múltiple (imitada con composición)
-// Consigna: En JavaScript, no existe herencia múltiple directa, pero se puede imitar usando composición. Crea una clase Vehiculo con un método mover. Luego, crea una clase Aeronave que también tenga un método volar. Crea una clase Avion que imite la herencia de ambas usando composición y que tenga métodos mover y volar.
+// // Consigna: En JavaScript, no existe herencia múltiple directa, pero se puede imitar usando composición. Crea una clase Vehiculo con un método mover. Luego, crea una clase Aeronave que también tenga un método volar. Crea una clase Avion que imite la herencia de ambas usando composición y que tenga métodos mover y volar.
 
 
-class Vehiculo {
-    mover() {
-        console.log("El vehiculo se está moviendo")
-    }
-}
+// class Vehiculo {
+//     mover() {
+//         console.log("El vehiculo se está moviendo")
+//     }
+// }
 
-class Aeronave {
-    volar() {
-        console.log("La aeronave está volando")
-    }
-}
+// class Aeronave {
+//     volar() {
+//         console.log("La aeronave está volando")
+//     }
+// }
 
-class Avion {
-    constructor(){
-        this.vehiculo = new Vehiculo()
-        this.Aeronave = new Aeronave()
-    }
-    mover(){
-        this.vehiculo.mover()
-    }
-    volar(){
-        this.Aeronave.volar()
-    }
-}
+// class Avion {
+//     constructor(){
+//         this.vehiculo = new Vehiculo()
+//         this.Aeronave = new Aeronave()
+//     }
+//     mover(){
+//         this.vehiculo.mover()
+//     }
+//     volar(){
+//         this.Aeronave.volar()
+//     }
+// }
 
-const miAvion = new Avion();
-miAvion.mover()
-miAvion.volar()
+// const miAvion = new Avion();
+// miAvion.mover()
+// miAvion.volar()
 
 
 // Ejercicio: Gestión Básica de Vehículos con Herencia
@@ -160,18 +160,45 @@ miAvion.volar()
 // anio: El año de fabricación del vehículo.
 // Métodos:
 // detalles(): Imprime los detalles del vehículo en la consola.
-// Crear la subclase Coche que extienda de Vehiculo:
+// Crear la subclase Auto que extienda de Vehiculo:
 
 // Propiedades adicionales:
-// puertas: El número de puertas del coche.
+// puertas: El número de puertas del Auto.
 // Sobrescribir el método detalles():
 // Llama al método detalles() de la clase base y agrega la información del número de puertas.
 // Probar las clases:
 
-// Crear una instancia de Vehiculo y otra de Coche.
+// Crear una instancia de Vehiculo y otra de Auto.
 // Llamar al método detalles() de cada instancia y observar la salida.
 
 
+class Vehiculo {
+    constructor(marca, modelo, anio) {
+        this.marca = marca,
+        this.modelo = modelo,
+        this.anio = anio
+    }
+    detalles(){
+        return (`Vehiculo Marca: ${this.marca}, modelo: ${this.modelo}, año ${this.anio}.`)
+    }
+}
 
+class Auto extends Vehiculo {
+    constructor(marca, modelo, anio, puertas) {
+        super(marca, modelo, anio);
+        this.puertas = puertas
+    }
+    // detalles(){
+    //     return (`Vehiculo Marca: ${this.marca}, modelo: ${this.modelo}, año ${this.anio}, numero de puertas ${this.modelo}`)
+    // }
+    detalles(){
+        return super.detalles() + (` numero de puertas ${this.puertas}`)
+    }
+}
 
+const vehiculoUno = new Vehiculo("Renault", "Clio", 2007)
 
+const autoUno = new Auto("Toyota", "Corola", 2018, 4)
+
+console.log(vehiculoUno.detalles())
+console.log(autoUno.detalles())
